@@ -153,6 +153,7 @@ export type SiteConfig = {
 				deleteSpeed: number; // 删除速度（毫秒）
 				pauseTime: number; // 完整显示后的暂停时间（毫秒）
 			};
+			hitokoto?: boolean; // ADD:是否启用一言API替代副标题
 		};
 		credit: {
 			enable: boolean;

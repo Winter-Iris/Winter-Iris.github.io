@@ -428,12 +428,12 @@ if (siteConfig.font) {
 <script>
 	// import { animationManager } from '../utils/animation-utils';
 	import "overlayscrollbars/overlayscrollbars.css";
-	// import {
-	//  OverlayScrollbars,
-	//  // ScrollbarsHidingPlugin,
-	//  // SizeObserverPlugin,
-	//  // ClickScrollPlugin
-	// } from 'overlayscrollbars';
+	import {
+	 OverlayScrollbars,
+	 ScrollbarsHidingPlugin,
+	 SizeObserverPlugin,
+	 ClickScrollPlugin
+	} from 'overlayscrollbars';
 	// import {getHue, getStoredTheme, setHue, setTheme} from "../utils/setting-utils";
 	import { pathsEqual, url } from "../utils/url-utils";
 	import {
@@ -1296,6 +1296,24 @@ function disableAnimation() {
 			}
 		})();
 	}
+	// 在页面加载完成后初始化插件
+    document.addEventListener("DOMContentLoaded", () => {
+        // 注册插件（可选，但推荐）
+        OverlayScrollbars.plugin([ScrollbarsHidingPlugin, SizeObserverPlugin, ClickScrollPlugin]);
+
+        // 初始化 body 滚动条
+        const osInstance = OverlayScrollbars(document.body, {
+            scrollbars: {
+                theme: 'os-theme-dark', // 或者 'os-theme-light'
+                autoHide: 'move',       // 滚动时显示，静止时隐藏
+                clickScroll: true,      // 允许点击轨道滚动
+            },
+            // 这一点很重要：告诉插件不仅接管 body，还要接管 html 的滚动行为
+            overflow: {
+                x: 'hidden',
+            }
+        });
+    });
 </script>
 
 <!-- 代码块折叠功能 -->

@@ -26,6 +26,16 @@
   font-display: swap;
 }
 
+/* 导入 LXGW */
+@font-face {
+  font-family: 'LXGW'; /* 给字体起个名字，随便起，后面配置要用 */
+  src: url('/assets/font/LXGWBrightCode-Regular.ttf') format('truetype'); /* 对应刚才放文件的路径 */
+  font-display: swap;
+  font-weight: normal;
+  font-style: normal;
+}
+
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -718,3 +728,4 @@ html {
 :root:not(.dark) .custom-md spoiler {
   --_spoiler-mask: color-mix(in oklch, var(--primary) 55%, white 45%);
 }
+

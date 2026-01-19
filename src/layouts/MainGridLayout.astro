@@ -672,22 +672,75 @@ const transparentClass = shouldEnableTransparency
                             {siteConfig.banner.homeText.title}
                         </h1>
                     )}
+
                     {siteConfig.banner.homeText?.subtitle && (
                         <h2 class="banner-subtitle text-xl lg:text-3xl text-white/90 drop-shadow-md">
-                            <span class="inline-block min-h-[1.2em]">
-                                {siteConfig.banner.homeText.typewriter?.enable ? (
-                                    <TypewriterText 
-                                        text={siteConfig.banner.homeText.subtitle}
-                                        speed={siteConfig.banner.homeText.typewriter.speed}
-                                        deleteSpeed={siteConfig.banner.homeText.typewriter.deleteSpeed}
-                                        pauseTime={siteConfig.banner.homeText.typewriter.pauseTime}
-                                    />
-                                ) : (
-                                    Array.isArray(siteConfig.banner.homeText.subtitle) 
-                                        ? siteConfig.banner.homeText.subtitle[0] 
-                                        : siteConfig.banner.homeText.subtitle
-                                )}
-                            </span>
+                            {siteConfig.banner.homeText.hitokoto ? (
+                                /*  一言打字机  */
+                                <>
+                                   <span 
+                                        id="hitokoto-text" 
+                                        class="typewriter inline-block min-h-[1.2em]"
+                                        data-speed={siteConfig.banner.homeText.typewriter?.speed ?? 100}
+                                        data-delete-speed={siteConfig.banner.homeText.typewriter?.deleteSpeed ?? 50}
+                                        data-pause-time={siteConfig.banner.homeText.typewriter?.pauseTime ?? 2000}
+                                    >
+                                        Loading ...
+                                    </span>
+                                    <script>          
+                                        import { TypewriterEffect } from "../utils/typewriter";
+                                        function initHitokoto() {
+                                            const container = document.getElementById('hitokoto-text');
+                                            if (!container) return;
+                                            // 从 data 属性读取配置
+                                            const speed = parseInt(container.dataset.speed || '100');
+                                            const deleteSpeed = parseInt(container.dataset.deleteSpeed || '50');
+                                            const pauseTime = parseInt(container.dataset.pauseTime || '2000');
+
+                                            // 定义获取一言的函数（返回 Promise）
+                                            const fetcher = () => {
+                                                return fetch('https://v1.hitokoto.cn')
+                                                    .then(response => response.json())
+                                                    .then(data => `${data.hitokoto} —— ${data.from}`)
+                                                    .catch(err => {
+                                                        console.error("一言获取失败:", err);
+                                                        return "获取失败了...";
+                                                    });
+                                            };
+
+                                            // 启动
+                                            fetcher().then(initialText => {
+                                                new TypewriterEffect(container, {
+                                                    text: initialText,
+                                                    textFetcher: fetcher,
+                                                    speed: speed,
+                                                    deleteSpeed: deleteSpeed,
+                                                    pauseTime: pauseTime
+                                                });
+                                            });
+                                        }
+                                        
+                                        initHitokoto();
+                                        document.addEventListener('swup:contentReplaced', initHitokoto);
+                                    </script>
+                                </>
+                            ) : (
+                                /* 静态配置打字机 */
+                                <span class="inline-block min-h-[1.2em]">
+                                    {siteConfig.banner.homeText.typewriter?.enable ? (
+                                        <TypewriterText 
+                                            text={siteConfig.banner.homeText.subtitle}
+                                            speed={siteConfig.banner.homeText.typewriter.speed}
+                                            deleteSpeed={siteConfig.banner.homeText.typewriter.deleteSpeed}
+                                            pauseTime={siteConfig.banner.homeText.typewriter.pauseTime}
+                                        />
+                                    ) : (
+                                        Array.isArray(siteConfig.banner.homeText.subtitle) 
+                                            ? siteConfig.banner.homeText.subtitle[0] 
+                                            : siteConfig.banner.homeText.subtitle
+                                    )}
+                                </span>
+                            )}
                         </h2>
                     )}
                 </div>

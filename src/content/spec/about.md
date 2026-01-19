@@ -1,49 +1,47 @@
 
-This website is built with the **Astro** framework using the [Mizuki](https://github.com/matsuzaka-yuki/mizuki) theme.
 
+这个博客是基于 **Astro** 框架，使用了 [Mizuki](https://github.com/matsuzaka-yuki/mizuki) 主题搭建的
+
+主题仓库：
 ::github{repo="matsuzaka-yuki/Mizuki"}
 
-## 🌟 Theme Features
-
-### 🎨 Design & User Experience
-- **Modern & Elegant Design** - Clean, minimalist interface with beautiful typography
-- **Fully Responsive** - Optimized for all devices from mobile to desktop
-- **Dark/Light Mode** - Automatic theme switching with smooth transitions
-- **Beautiful Typography** - Enhanced readability with JetBrains Mono font
-- **Smooth Animations** - Fluid page transitions and interactive elements
-
-### 🔍 Content & Search
-- **Advanced Search** - Powered by [Pagefind](https://pagefind.app/) for fast, accurate results
-- **Enhanced Markdown** - Extended syntax with code highlighting and math support
-- **Interactive Table of Contents** - Auto-scroll navigation for long articles
-- **RSS Feed Generation** - Stay updated with automatic feed generation
-- **Reading Time Estimation** - Know how long articles take to read
-- **Post Categorization** - Organize content with tags and categories
-
-
-
-### 📱 Special Pages
-- **Anime Tracking Page** - Track your anime watching progress with ratings
-- **Friends Links Page** - Showcase friend websites with beautiful cards
-- **Diary/Moments Page** - Share life moments like social media posts
-- **Archive Page** - Organized timeline view of all posts
-- **About Page** - Customizable personal introduction (this page!)
-
-### 🛠 Technical Features
-- **Enhanced Code Blocks** - Powered by [Expressive Code](https://expressive-code.com/)
-- **Math Support** - LaTeX rendering with KaTeX for mathematical expressions
-- **Image Optimization** - PhotoSwipe gallery with lazy loading
-- **SEO Optimized** - Built-in sitemap and meta tags for better search visibility
-- **Performance Optimized** - Fast loading with caching and optimization
-- **Comment System Ready** - Integration support for Twikoo comments
-
-### 🎯 Advanced Markdown Features
-- **Callouts & Admonitions** - Beautiful info boxes with `> [!NOTE]`, `> [!TIP]`, `> [!WARNING]`
-- **Mathematical Equations** - Write LaTeX math with `$inline$` and `$$block$$` syntax
-- **GitHub Cards** - Embed repository cards with `::github{repo="user/repo"}`
-- **Syntax Highlighting** - Advanced code highlighting with line numbers
-- **Copy Code Buttons** - Easy code copying functionality
+本博客仓库：
+::github{repo="Winter-Iris/Winter-Iris.github.io"}
 
 ---
+此地沐雪，
+不问来处；
+文字临寒，
+自有温度。
+
+愿你暂歇尘心，
+听风读字，
+在纷乱人世中，
+与一只孤鸢
+共享片刻清明。
+
+—— 沐雪凌鸢
+
+
+---
+
+目前是一名**大二计算机专业**在读学生 🎓。这个博客主要用来记录我的学习轨迹、技术折腾心得。
+
+
+# 🌟 兴趣爱好
+
+作为一个二次元爱好者
+
+* **💻 计算机**: 喜欢折腾各种技术和软件。
+* **🎮 游戏**: 各类游戏都有涉猎，特别是 **ADOFAI** 🎵。
+* **🌸 二次元**: 番剧、音乐、同人作品都是我的精神食粮。
+
+# 常用的编程语言和工具
+
+* **C / C++**: 正在深入学习中，这是我的主力语言。
+* **Python**: 用于脚本编写和一些小工具开发。
+* **Java**: 正在探索其应用开发。
+
+虽然现在还有很多不足，但我始终走在不断学习的路上 🚀。
 
 *Built with ❤️ using Astro and inspired by modern web design principles.*
