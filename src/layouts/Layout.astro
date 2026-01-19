@@ -170,7 +170,6 @@ if (siteConfig.font) {
 <html
 	lang={siteLang}
 	class="bg-[var(--page-bg)] text-[14px] md:text-[16px]"
-	data-overlayscrollbars-initialize
 >
 	<head>
 		<!-- 第三方分析脚本 - 延迟加载优化 -->
@@ -422,18 +421,82 @@ if (siteConfig.font) {
 				transform: translate3d(85px, 0, 0);
 			}
 		}
+
+	
+		:root {
+			/* 轨道背景设为透明 */
+			--scrollbar-bg: transparent;
+			
+			/* 浅色模式下的滑块颜色 (稍微加深一点以便在白底上看清) */
+			--scrollbar-thumb: #b0b0b0;    
+			--scrollbar-thumb-hover: #909090;
+		}
+
+		/* 深色模式适配 */
+		:root[class~="dark"] {
+			--scrollbar-bg: transparent;
+			
+			/* 深色模式下的滑块颜色 */
+			--scrollbar-thumb: #555555;
+			--scrollbar-thumb-hover: #777777;
+		}
+		
+		/* 媒体查询备用 */
+		@media (prefers-color-scheme: dark) {
+			:root:not([data-theme="light"]) {
+				--scrollbar-bg: transparent;
+				--scrollbar-thumb: #555555;
+				--scrollbar-thumb-hover: #777777;
+			}
+		}
+
+		/* Webkit (Chrome/Edge/Safari) */
+		::-webkit-scrollbar {
+			width: 10px;  /* 稍微改窄一点，显得更精致 */
+			height: 10px;
+		}
+		
+		/* 轨道：完全透明 */
+		::-webkit-scrollbar-track {
+			background: transparent; 
+		}
+
+		/* 滑块：利用 border 和 background-clip 实现悬浮效果 */
+		::-webkit-scrollbar-thumb {
+			background-color: var(--scrollbar-thumb);
+			border-radius: 10px; /* 两端完全圆角 */
+			
+			/* 关键技巧：设置透明边框，让滑块看起来像是"悬浮"在中间，有一点间隙 */
+			border: 2px solid transparent; 
+			background-clip: content-box; 
+		}
+
+		/* 鼠标悬停在滑块上 */
+		::-webkit-scrollbar-thumb:hover {
+			background-color: var(--scrollbar-thumb-hover);
+		}
+
+		/* Firefox 浏览器样式 */
+		html {
+			overflow-y: auto; 
+			scroll-behavior: smooth;
+			
+			/* Firefox 的写法：参数1是滑块，参数2是轨道(这里设为透明) */
+			scrollbar-color: var(--scrollbar-thumb) transparent;
+			scrollbar-width: thin;
+		}
 	}
 </style>
 
 <script>
 	// import { animationManager } from '../utils/animation-utils';
-	import "overlayscrollbars/overlayscrollbars.css";
-	import {
-	 OverlayScrollbars,
-	 ScrollbarsHidingPlugin,
-	 SizeObserverPlugin,
-	 ClickScrollPlugin
-	} from 'overlayscrollbars';
+	// import "overlayscrollbars/overlayscrollbars.css";
+	// import {
+	//  OverlayScrollbars,
+	//  ScrollbarsHidingPlugin,
+	//  SizeObserverPlugin,
+	//  ClickScrollPlugin
+	// } from 'overlayscrollbars';
 	// import {getHue, getStoredTheme, setHue, setTheme} from "../utils/setting-utils";
 	import { pathsEqual, url } from "../utils/url-utils";
 	import {
@@ -1296,24 +1359,24 @@ function disableAnimation() {
 			}
 		})();
 	}
-	// 在页面加载完成后初始化插件
-    document.addEventListener("DOMContentLoaded", () => {
-        // 注册插件（可选，但推荐）
-        OverlayScrollbars.plugin([ScrollbarsHidingPlugin, SizeObserverPlugin, ClickScrollPlugin]);
+	// // 在页面加载完成后初始化插件
+    // document.addEventListener("DOMContentLoaded", () => {
+    //     // // 注册插件（可选，但推荐）
+    //     // OverlayScrollbars.plugin([ScrollbarsHidingPlugin, SizeObserverPlugin, ClickScrollPlugin]);
 
-        // 初始化 body 滚动条
-        const osInstance = OverlayScrollbars(document.body, {
-            scrollbars: {
-                theme: 'os-theme-dark', // 或者 'os-theme-light'
-                autoHide: 'move',       // 滚动时显示，静止时隐藏
-                clickScroll: true,      // 允许点击轨道滚动
-            },
-            // 这一点很重要：告诉插件不仅接管 body，还要接管 html 的滚动行为
-            overflow: {
-                x: 'hidden',
-            }
-        });
-    });
+    //     // // 初始化 body 滚动条
+    //     // const osInstance = OverlayScrollbars(document.body, {
+    //     //     scrollbars: {
+    //     //         theme: 'os-theme-dark', // 或者 'os-theme-light'
+    //     //         autoHide: 'move',       // 滚动时显示，静止时隐藏
+    //     //         clickScroll: true,      // 允许点击轨道滚动
+    //     //     },
+    //     //     // 这一点很重要：告诉插件不仅接管 body，还要接管 html 的滚动行为
+    //     //     overflow: {
+    //     //         x: 'hidden',
+    //     //     }
+    //     // });
+    // });
 </script>
 
 <!-- 代码块折叠功能 -->
