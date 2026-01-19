@@ -22,6 +22,8 @@ jobs:
             # 使用 Astro 官方动作，它会自动识别 pnpm-lock.yaml 并使用 pnpm 安装依赖
             - name: Install, build, and upload your site
               uses: withastro/action@v2
+              env:
+                UMAMI_API_KEY: ${{ secrets.UMAMI_API_KEY }}
     deploy:
         needs: build
         runs-on: ubuntu-latest
