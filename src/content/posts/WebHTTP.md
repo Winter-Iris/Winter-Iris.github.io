@@ -92,7 +92,8 @@ $$非持久HTTP响应时间=2RTT+对象传输时间（每个对象）$$
 - 后续的HTTP响应报文（被请求的对象在一个服务器之上）在该TCP连接上陆续传输
 - 流水线方式：客户端在遇到每个被引用的对象时立即在TCP连接上发出请求 
 - 流水线方式：所有的被引用对象 会在一个RTT时间内被获取（减少一半的响应时间） 
-![](Pasted%20image%2020260428140357.png)
+
+![pasted-image-1782552238630.webp](https://files.seeusercontent.com/2026/06/27/hK9g/pasted-image-1782552238630.webp)
 
 # HTTP报文格式
 
@@ -120,7 +121,7 @@ Connection: close
 ```
 
 - HTTP通用格式
-![](Pasted%20image%2020260428140956.png)
+![pasted-image-1782552275505.webp](https://files.seeusercontent.com/2026/06/27/y2Dc/pasted-image-1782552275505.webp)
 
 - GET方法 (用于发送数据到服务器上)
 	- 在HTTP GET请求消息的URL字段中包括着用户数据（后面跟着一个“？”）
