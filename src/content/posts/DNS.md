@@ -145,7 +145,7 @@ DNS 名字空间是一个倒置的树。树中的每个节点都有一个标签�
 | **授权区 (Authority)**  | 包含权限名字服务器的记录       |
 | **附加区 (Additional)** | 补充信息（如解析出来的服务器 IP） |
 
-![](Pasted%20image%2020260429200739.png)
+![pasted-image-1782551757556.webp](https://files.seeusercontent.com/2026/06/27/w1eM/pasted-image-1782551757556.webp)
 
 - 首部决定了报文的性质（是查还是回）以及查询的状态。
 - **ID (Transaction ID, 16位)**：（**匹配请求与响应**）

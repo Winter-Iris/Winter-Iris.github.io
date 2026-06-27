@@ -66,7 +66,7 @@ MSS 并不是全局统一的，而是由连接双方在**三次握手**期间协
 
 # TCP 段结构
 
-![](Pasted%20image%2020260506135550.png)
+![pasted-image-1782551646391.webp](https://files.seeusercontent.com/2026/06/27/Gv7o/pasted-image-1782551646391.webp)
 
 
 ### 序列号 (Sequence Number)

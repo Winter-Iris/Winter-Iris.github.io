@@ -35,7 +35,8 @@ $$D_{cs} \geq \max \left( \frac{NF}{u_s}, \frac{F}{d_{min}} \right)$$
 - **系统总上传能力**：所有 Peer 的上传带宽总和（加上服务器的）必须能覆盖所有 Peer 的下载需求（$NF$）。时间至少为 $NF / (u_s + \sum u_i)$。
 
 $$D_{p2p} \geq \max \left( \frac{F}{u_s}, \frac{F}{d_{min}}, \frac{NF}{u_s + \sum_{i=1}^N u_i} \right)$$
-![](Pasted%20image%2020260429204504.png)
+
+![pasted-image-1782551692629.webp](https://files.seeusercontent.com/2026/06/27/z6Su/pasted-image-1782551692629.webp)
 
 # 非结构化P2P
 - 非结构化 P2P 是最早期、最简单的组织形式（如 Gnutella）。节点之间的连接是**随机**的，没有特定的拓扑结构。
